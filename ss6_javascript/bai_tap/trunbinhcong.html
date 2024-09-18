@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="" value="" id="input">
+        <button type="button" onclick="button ()">Hiển thị kết quả</button>
+    </form>
+    <h1 id="output"></h1>
+    <script>
+        /* var a = prompt ('nhập điểm Toán');
+         var b = prompt ('nhập điểm Hoá');
+         var c = prompt ('nhập điểm Lý');
+         var d = (parseFloat (a) + parseFloat (b) + parseFloat (c)) / 3;
+          alert ('Điểm trung bình cộng là: ' + d); */
+            function button (){
+                var e = document.getElementById('input').value;
+                document.getElementById('output').innerHTML = e;
+            }
+    </script>
+</body>
+</html>
