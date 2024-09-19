@@ -12,11 +12,13 @@
     </form>
     <h1 id="output"></h1>
     <script>
-        /* var a = prompt ('nhập điểm Toán');
-         var b = prompt ('nhập điểm Hoá');
-         var c = prompt ('nhập điểm Lý');
-         var d = (parseFloat (a) + parseFloat (b) + parseFloat (c)) / 3;
-          alert ('Điểm trung bình cộng là: ' + d); */
+        // yêu cầu 1
+         var maths = prompt ('nhập điểm Toán');
+         var chemistry = prompt ('nhập điểm Hoá');
+         var physics = prompt ('nhập điểm Lý');
+         var sum = (parseFloat (maths) + parseFloat (chemistry) + parseFloat (physics)) / 3;
+          alert ('Điểm trung bình cộng là: ' + sum);
+        // yêu cầu 2
             function button (){
                 var e = document.getElementById('input').value;
                 document.getElementById('output').innerHTML = e;
