@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Điểm trung bình</title>
+</head>
+<body>
+    <form>
+        <div>
+            <label for="vatly">Điểm môn Lý</label>
+            <input type="text" name="vatly" value="" id="vatly">  
+        </div>
+        <div>
+            <label for="hoa">Điểm môn Hoá</label>
+            <input type="text" name="hoa" value="" id="hoa">  
+        </div>
+        <div>
+            <label for="sinh">Điểm môn Sinh</label>
+            <input type="text" name="sinh" value="" id="sinh">  
+        </div>
+        <p id="push"></p>
+        <button type="button" onclick="avg ()">Điểm Trung Bình</button>
+        <button type="button" onclick="sum ()">Điểm Tổng</button>
+        <button type="button" onclick="resetS ()">Reset</button>
+    </form>
+    <script>
+        function resetS () {
+            document.getElementById('vatly').value = Null;
+            document.getElementById('hoa').value = Null;
+            document.getElementById('sinh').value = Null;
+            document.getElementById('push').innerHTML = " ";
+        }
+        function avg (){
+            var maths = document.getElementById('vatly').value;
+            var chemistry = document.getElementById('hoa').value;
+            var biology = document.getElementById('sinh').value;
+            var outAvg = (parseFloat(a) + parseFloat(b) + parseFloat(c)) / 3;
+            document.getElementById('push').innerText = 'Điểm Trung Bình là: ' + outAvg;
+        }
+        function sum (){
+            var maths = document.getElementById('vatly').value;
+            var chemistry = document.getElementById('hoa').value;
+            var biology = document.getElementById('sinh').value;
+            var outSum = parseFloat(a) + parseFloat(b) + parseFloat(c);
+            document.getElementById('push').innerText = 'Điểm Tổng là: ' + outSum;
+        }
+    </script>
+</body>
+</html>

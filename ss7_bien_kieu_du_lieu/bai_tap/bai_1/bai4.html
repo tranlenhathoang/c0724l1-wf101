@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="get">
+        <input type="text" name="" id="radius" placeholder="nhập đường kính">
+        <button type="button" onclick="result()">Chu vi</button>
+        <button type ="button" onclick="resetResult()">Reset</button>
+    </form>
+    <p id="acreage"></p>
+    <script>
+        function resetResult(){
+            document.getElementById('acreage').innerHTML = '';
+        }
+        function result(){
+            const PI = 3.14;
+            let d = document.getElementById('radius').value;
+            let c = parseFloat(d) * PI;
+            document.getElementById('acreage').innerText = 'Chu vi hình tròn là: ' + c;
+        }
+    </script>
+</body>
+</html>
