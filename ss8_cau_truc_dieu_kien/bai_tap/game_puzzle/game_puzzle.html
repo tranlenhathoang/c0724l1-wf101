@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div>
+        <div><img id="img1" src="hinh_anh/funny-cat1_part1x1.jpg" alt="" style="width: 100%;" onclick="imgClickOne()"></div>
+        <div><img id="img2" src="hinh_anh/funny-cat1_part2x1.jpg" alt="" style="width: 100%;" onclick="imgClickTwo()"></div>
+        <div><img id="img3" src="hinh_anh/funny-cat1_part3x1.jpg" alt="" style="width: 100%;" onclick="imgClickThree()"></div>
+        <div><img id="img4" src="hinh_anh/funny-cat1_part4x1.jpg" alt="" style="width: 100%;" onclick="imgClickFour()"></div>
+        <div><img id="img5" src="hinh_anh/funny-cat1_part5x1.jpg" alt="" style="width: 100%;" onclick="imgClickFive()"></div>
+    </div>
+    <script>
+      //   let imageMain =[
+      //       {anh1:"hinh_anh/funny-cat1_part1x1.jpg",
+      //       anh2:"hinh_anh/monkey_part1x1.jpg",
+      //       anh3:"hinh_anh/panda_swap_part1x1.jpg"},
+      //       {anh1:"hinh_anh/funny-cat1_part2x1.jpg",
+      //       anh2:"hinh_anh/monkey_part2x1.jpg",
+      //       anh3:"hinh_anh/panda_swap_part2x1.jpg"},
+      //       {anh1:"hinh_anh/funny-cat1_part3x1.jpg",
+      //       anh2:"hinh_anh/monkey_part3x1.jpg",
+      //       anh3:"hinh_anh/panda_swap_part3x1.jpg"},
+      //       {anh1:"hinh_anh/funny-cat1_part4x1.jpg",
+      //       anh2:"hinh_anh/monkey_part4x1.jpg",
+      //       anh3:"hinh_anh/panda_swap_part4x1.jpg"},
+      //       {anh1:"hinh_anh/funny-cat1_part5x1.jpg",
+      //       anh2:"hinh_anh/monkey_part5x1.jpg",
+      //       anh3:"hinh_anh/panda_swap_part5x1.jpg"},
+      //   ]
+        let imageMainOne = [
+            "hinh_anh/funny-cat1_part1x1.jpg", 
+            "hinh_anh/monkey_part1x1.jpg",
+            "hinh_anh/panda_swap_part1x1.jpg"]
+        let imageMainTwo = [
+            "hinh_anh/funny-cat1_part2x1.jpg",
+            "hinh_anh/monkey_part2x1.jpg",
+            "hinh_anh/panda_swap_part2x1.jpg"]
+        let imageMainThree = [
+            "hinh_anh/funny-cat1_part3x1.jpg",
+            "hinh_anh/monkey_part3x1.jpg",
+            "hinh_anh/panda_swap_part3x1.jpg"]
+        let imageMainFour = [
+            "hinh_anh/funny-cat1_part4x1.jpg",
+            "hinh_anh/monkey_part4x1.jpg",
+            "hinh_anh/panda_swap_part4x1.jpg"]
+        let imageMainFive = [
+            "hinh_anh/funny-cat1_part5x1.jpg",
+            "hinh_anh/monkey_part5x1.jpg",
+            "hinh_anh/panda_swap_part5x1.jpg"]
+        let imgIndex = 0;
+      //   for(var i=0; i<5; i++){
+        
+      //           document.getElementById(`img${i}`).src = imageMain[i].anh1;
+        
+      //   }
+        
+        // function imgClick(imageNumber){
+        //     for (let i=0; i<5; i++){
+        //         const values = Object.keys(imageMain[i]); 
+        //         const randomValue = keys[Math.random() * keys.length];
+        //         console.log (values)
+        //         document.getElementById(imageNumber).src = imageMain[i].randomValue;
+        //     }
+            
+        // }
+      //   function imgClick(){
+      //       imgIndex++;
+      //    if (imgIndex >= 3){
+      //       imgIndex = 0;
+      //    }
+      //   document.getElementById('img1').src = imageMain[imgIndex];
+      //   }
+
+
+
+        function imgClickOne (){
+         imgIndex++;
+         if (imgIndex >= imageMainOne.length){
+            imgIndex = 0;
+         }
+        document.getElementById('img1').src = imageMainOne[imgIndex];
+        }
+
+        function imgClickTwo (){
+         imgIndex++;
+         if (imgIndex >= imageMainTwo.length){
+            imgIndex = 0;
+         }
+        document.getElementById('img2').src = imageMainTwo[imgIndex];
+        }
+
+        function imgClickThree (){
+         imgIndex++;
+         if (imgIndex >= imageMainThree.length){
+            imgIndex = 0;
+         }
+        document.getElementById('img3').src = imageMainThree[imgIndex];
+        }
+
+        function imgClickFour (){
+         imgIndex++;
+         if (imgIndex >= imageMainFour.length){
+            imgIndex = 0;
+         }
+        document.getElementById('img4').src = imageMainFour[imgIndex];
+        }
+
+        function imgClickFive (){
+         imgIndex++;
+         if (imgIndex >= imageMainFive.length){
+            imgIndex = 0;
+         }
+        document.getElementById('img5').src = imageMainFive[imgIndex];
+        }
+
+
+    </script>
+</body>
+</html>

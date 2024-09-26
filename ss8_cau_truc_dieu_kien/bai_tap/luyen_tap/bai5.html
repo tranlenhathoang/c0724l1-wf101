@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let mid = parseFloat(prompt('nhập điểm thi giữa kì'));
+        let final = parseFloat(prompt('nhập điểm thi cuối kì'));
+        let avg = (mid + final) / 2;
+        if (avg >= 8){
+            alert ('Bạn được học sinh Giỏi');
+        }else if (avg >= 6.5){
+            alert ('Bạn được học sinh Khá');
+        }else if (avg >= 4.5){
+            alert ('Bạn được học sinh Trung Bình');
+        }else {
+            alert ('Bạn được học sinh Yếu');
+        }
+    </script>
+</body>
+</html>

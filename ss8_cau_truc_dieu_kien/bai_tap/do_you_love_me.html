@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Do you love me?</h2>
+    <button type="button" onclick="yesClick()">Yes</button>
+    <button type="button" id="btnNo" style="position: absolute;" onmouseover="noClick()">No</button>
+    <script>
+        function yesClick(){
+            alert('<3')
+        }
+        function noClick(){
+            var x = Math.round(Math.random() * window.innerWidth);
+            var y = Math.round(Math.random() * window.innerHeight);
+            document.getElementById('btnNo').style.left = x +'px';
+            document.getElementById('btnNo').style.top = y + 'px';
+            //có thể thay thế style.left bằng style = `transform: translate ($(x)px, $(y)px)`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = parseFloat(prompt('nhập hằng số a'))
+        let b = parseFloat(prompt('nhập hằng số b'))
+       if (a == 0 && b == 0){
+        alert ('phương trình vô nghiệm');
+       }else if (a != 0 && b == 0){
+         alert ('Phương trình có nghiệm x = 0');
+       }else if (a == 0 && b != 0){
+        alert ('phương trình vô nghiệm');
+       }else {
+        let x = (-b) / a;
+        alert (`phương trình có nghiệm x là: ${x}`);
+       }
+    </script>
+</body>
+</html>

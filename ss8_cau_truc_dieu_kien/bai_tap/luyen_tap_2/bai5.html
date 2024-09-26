@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = parseFloat(prompt('nhập cạnh a '));
+        let b = parseFloat(prompt('nhập cạnh b hình chữ nhật'));
+        if (isNaN(a) || isNaN(b)){
+            alert ('vui lòng nhập dạng số')// làm sao để reset lại hàm prompt khi người dùng nhập vào sai 
+        }else {
+            let s = 0.5 * a * b; 
+            alert (`Diện tích hình tam giác vuông là: ${s}`);
+        }
+    </script>
+</body>
+</html>

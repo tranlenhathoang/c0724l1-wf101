@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sales = parseFloat(prompt('Nhập doanh số bán hàng'));
+        let money;
+        if (sales >= 1000000){
+            money = sales * 0.1;
+        alert (`Tiền hoa hồng nhận được là: ${money}`);
+        }else if (sales >= 700000){
+            money = sales * 0.07;
+            alert (`Tiền hoa hồng nhận được là: ${money}`);
+        }else if (sales >= 500000){
+            money = sales * 0.05;
+            alert (`Tiền hoa hồng nhận được là: ${money}`);
+        }else if (sales >= 300000){
+            money = sales * 0.03;
+            alert (`Tiền hoa hồng nhận được là: ${money}`);
+        }else {
+            alert ('Chúc bạn may mắn lần sau');
+        }
+    </script>
+</body>
+</html>

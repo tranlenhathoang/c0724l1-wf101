@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let dien = parseFloat(prompt('nhập số điện trong tháng'));
+    let bill;
+    if (dien <= 50){
+        bill = dien * 1.806;
+        alert (`số tiền điện phải trả là: ${bill}`);
+    }else if (dien <= 100){
+        bill = (50 * 1.806) + ((dien - 50) * 1.866);
+        alert (`số tiền điện phải trả là: ${bill}`);
+    }else if (dien <= 200){
+        bill = (50 * 1.806) + (50 * 1.866) + ((dien - 100) * 2.167);
+        alert (`số tiền điện phải trả là: ${bill}`);
+    }else if (dien <= 300){
+        bill = (50 * 1.806) + (50 * 1.866) + (100 * 2.167) + ((dien - 200) * 2.729);
+        alert (`số tiền điện phải trả là: ${bill}`);
+    }else {
+        bill = (50 * 1.806) + (50 * 1.866) + (100 * 2.167) + (100 * 2.729) + ((dien - 300) * 3.050);
+        alert (`số tiền điện phải trả là: ${bill}`);
+    }
+    </script>
+    
+</body>
+</html>

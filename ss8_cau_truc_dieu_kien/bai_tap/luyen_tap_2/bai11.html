@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let salary = parseFloat(prompt('Nhập lương ròng đơn vị triệu'));
+        let tax;
+        if (salary >= 15){
+            tax = salary * 0.3;
+            alert (`số tiền thuế phải đóng là: ${tax}`);
+        }else if (salary >= 7){
+            tax = salary * 0.2;
+            alert (`số tiền thuế phải đóng là: ${tax}`);
+        }else {
+            tax = salary * 0.1;
+            alert (`số tiền thuế phải đóng là: ${tax}`);
+        }
+    </script>
+
+</body>
+</html>

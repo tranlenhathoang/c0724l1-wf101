@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="get">
+        <input type="text" id="month" placeholder="nhập tháng">
+        <button type="button" onclick="day()">Tính số ngày</button>
+    </form>
+    <p id="result"></p>
+    <script>
+        // var day31 = [1,3,5,7,8,10,12];
+        // var day30 = [4,6,9,11];
+        // function day(){
+        //     let month = document.getElementById('month').value;
+        //     console.log(day30.includes(parseInt(month))); //includes kiểm tra phần tử trong mảng
+        //     switch (true){
+        //         case day31.includes(parseInt(month)):
+        //         document.getElementById('result').innerText = 'Tháng ' + month + ' có 31 ngày';
+        //         break;
+        //         case day30.includes(parseInt(month)):
+        //         document.getElementById('result').innerText = 'Tháng ' + month + ' có 30 ngày';
+        //         break;
+        //         default: 
+        //         document.getElementById('result').innerText = 'Tháng ' + month + ' có 28 hoặc 29 ngày';
+        //     }
+        // }
+        function day(){
+            let month = document.getElementById('month').value;
+            console.log(typeof month);
+            switch (parseInt(month)){
+                case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                document.getElementById('result').innerText = `Tháng ${month} có 31 ngày`;
+                break;
+                case 2: 
+                document.getElementById('result').innerText = `Tháng ${month} có 28 hoặc 29 ngày`;
+                break;
+                case 4: case 6: case 9: case 11:
+                document.getElementById('result').innerText = `Tháng ${month} có 30 ngày`;
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let minute = parseFloat(prompt('nhập số phút'));
+        let bill;
+        if (minute <= 50){
+            bill = 25000 + (600 * minute);
+            alert (`số tiền cước phải trả là: ${bill}`);
+        }else if (minute <= 200){
+            bill = 25000 + (50 * 600) + ((minute-50) * 400);
+            alert (`số tiền cước phải trả là: ${bill}`);
+        }else{
+            bill = 25000 + (50 * 600) + (150 * 400) + ((minute - 200) * 200);
+            alert (`số tiền cước phải trả là: ${bill}`);
+        }
+    </script>
+</body>
+</html>
