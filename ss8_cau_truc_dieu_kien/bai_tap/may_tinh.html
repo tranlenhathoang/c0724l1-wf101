@@ -11,35 +11,56 @@
 <body>
     <div>
         <form>
-            <input type="text" name="" value="0" id="outputResult">
+            <input type="text" name="" value="" id="outputResult">
         </form>
         <div>
-            <button type="button" onclick="buttonInput (this)">1</button>
-            <button type="button" onclick="buttonInput (this)">2</button>
-            <button type="button" onclick="buttonInput (this)">3</button>
-            <button type="button" onclick="buttonInput (this)">+</button>
+            <button type="button" onclick="clickNumber(1)">1</button>
+            <button type="button" onclick="clickNumber(2)">2</button>
+            <button type="button" onclick="clickNumber(3)">3</button>
+            <button type="button" onclick="clickNumber('+')">+</button>
         </div>
         <div>
-            <button type="button" onclick="buttonInput (this)">4</button>
-            <button type="button" onclick="buttonInput (this)">5</button>
-            <button type="button" onclick="buttonInput (this)">6</button>
-            <button type="button" onclick="buttonInput (this)">-</button>
+            <button type="button" onclick="clickNumber(4)">4</button>
+            <button type="button" onclick="clickNumber(5)">5</button>
+            <button type="button" onclick="clickNumber(6)">6</button>
+            <button type="button" onclick="clickNumber('-')">-</button>
         </div>
         <div>
-            <button type="button" onclick="buttonInput (this)">7</button>
-            <button type="button" onclick="buttonInput (this)">8</button>
-            <button type="button" onclick="buttonInput (this)">9</button>
-            <button type="button" onclick="buttonInput (this)">x</button>
+            <button type="button" onclick="clickNumber(7)">7</button>
+            <button type="button" onclick="clickNumber(8)">8</button>
+            <button type="button" onclick="clickNumber(9)">9</button>
+            <button type="button" onclick="clickNumber('x')">x</button>
         </div>
         <div>
-            <button type="button" onclick="buttonInput (this)">AC</button>
-            <button type="button" onclick="buttonInput (this)">0</button>
-            <button type="button" onclick="buttonInput (this)">=</button>
-            <button type="button" onclick="buttonInput (this)">/</button>
+            <button type="button" onclick="del()">AC</button>
+            <button type="button" onclick="clickNumber(0)">0</button>
+            <button type="button" onclick="calculate()">=</button>
+            <button type="button" onclick="clickNumber('/')">/</button>
         </div>
     </div>
     <script>
-        
+        function clickNumber(character){
+            if (character == 'x'){
+                document.getElementById('outputResult').value +='*';
+            }else{
+                document.getElementById('outputResult').value +=character;
+            }
+        }
+        // function clickOne(){
+        //     document.getElementById('outputResult').value +=1; 
+        // }
+        // function clickAdd(){
+        //     document.getElementById('outputResult').value += '+'; 
+        // }
+        function calculate(){
+            let window = document.getElementById('outputResult').value;
+            let cal = eval(window);
+            document.getElementById('outputResult').value = cal;
+        }
+        function del(){
+            document.getElementById('outputResult').value = "";
+        }
+
     </script>
 </body>
 </html>
