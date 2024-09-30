@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numberOne = 0;
+        let numberTwo = 1;
+        let nextNumber;
+        document.write(numberOne +'<br>');
+        document.write(numberTwo +'<br>');
+        for (i=3; i<=20; i++){
+            nextNumber = numberOne + numberTwo;
+            document.write(nextNumber +'<br>');
+            numberOne = numberTwo;
+            numberTwo = nextNumber;
+        }
+    </script>
+</body>
+</html>

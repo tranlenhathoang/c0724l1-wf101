@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="triangleOne()">tam giac 1</button>
+    <button type="button" onclick="triangleTwo()">tam giac 2</button>
+    <button type="button" onclick="triangleThree()">tam giac 3</button>
+    <button type="button" onclick="triangleFour()">tam giac 4</button>
+
+    <script>
+        function triangleOne(){
+            let character = '';
+        for (let i=1; i<=5; i++){
+            character += '*';
+            document.write(character + '<br>')
+        }
+        }
+
+        function triangleTwo() {
+            for (let i=1; i<=5; i++){
+            let character = '';
+            for (let j=5;j>=i; j--){
+                character += '*';
+            }
+            document.write(character + '<br>');
+        }
+        }
+
+        function triangleThree() {
+            for (let i=1; i<=5; i++){
+            let spaces = '';
+            for (let j=1; j<=5-i; j++){
+                spaces += '_';
+            }
+            let character = '';
+            for (let k=1; k<=i; k++){
+                character += '*';
+            }
+            document.write(spaces + character + '<br>');
+        }
+        }
+        
+        function triangleFour() {
+            for (let i=1; i<=5; i++){
+            let spaces = '';
+            for (let j=1; j<i; j++){
+                spaces += '_';
+            }
+            let character = '';
+            for (let k=5; k>=i; k--){
+                character += '*';
+            }
+            document.write(spaces + character + '<br>');
+        }
+        }
+    
+    </script>
+</body>
+</html>

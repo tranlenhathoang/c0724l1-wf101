@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = parseFloat(prompt('nhập số nguyên dương cần tính'));
+        let number;
+        let mul = n;
+        for (let i=1; i<n; i++){
+            number = n-i;
+            mul *= number;
+        }
+        document.write(`giai thừa của ${n} là: ${mul}`);
+    </script>
+</body>
+</html>

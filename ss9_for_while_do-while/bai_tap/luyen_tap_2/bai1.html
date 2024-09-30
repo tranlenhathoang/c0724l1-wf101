@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numberOne = 0;
+        let numberTwo = 1;
+        document.write(numberOne + ',' + numberTwo + ',' );
+        for (let i=1; i<=50; i++){
+            let number = numberOne + numberTwo;
+            numberOne = numberTwo;
+            numberTwo = number;
+            document.write(number + ',');
+        }
+    </script>
+</body>
+</html>

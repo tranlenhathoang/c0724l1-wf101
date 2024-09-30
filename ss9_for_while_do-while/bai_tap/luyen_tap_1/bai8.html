@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="play()">Chơi</button>
+    <script>
+        function play(){
+            let randomNumber = Math.floor(Math.random()*100 +1);
+            console.log(randomNumber);
+            for (let i=0; i<3; i++){
+                let number = parseInt(prompt('nhập số bạn muôn đoán từ 1 đến 100'));
+                if (number < randomNumber){
+                    alert ('Bạn nên tăng số lên');
+                }else if (number > randomNumber){
+                    alert ('Bạn nên giảm số xuống');
+                }else{
+                    alert ('Chúc mừng bạn đã đoán đúng');
+                    break;
+                }
+                if(i === 2){
+                    alert ('Bạn đã hết lượt');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
