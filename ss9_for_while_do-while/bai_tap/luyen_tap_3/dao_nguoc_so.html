@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = parseFloat(prompt('nhập dãy số cần đảo ngược'));
+        let number;
+        while (n>0){
+            number = n % 10;
+            document.write(number);
+            n = Math.floor(n / 10);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = parseFloat(prompt('nhập chữ số cần đếm'));
+        let count = 0;
+// dùng for
+        // for (let i=1; i<=n; i++){
+        //     if ((n % 10) != 0){
+        //         count++;
+        //     }else {
+        //         break;
+        //     }
+        //     n = Math.floor(n%10);
+        // }
+        // alert (`số chữ số trong dãy là: ${count}`);
+
+//dùng while
+        while (n>0){
+            n = Math.floor (n / 10);
+            count++;
+        }
+        alert (`số chữ số trong dãy là: ${count}`);
+    </script>
+</body>
+</html>12

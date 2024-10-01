@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let principal = parseFloat(prompt('nhập số tiền gửi'));
+        let rate = parseFloat(prompt('nhập lãi suất hàng năm'));
+        let years = parseFloat(prompt('nhập số năm'));
+        for (let i=1; i<=years; i++){
+            principal *= (1 + (rate/100));
+        }
+    </script>
+
+</body>
+</html>
