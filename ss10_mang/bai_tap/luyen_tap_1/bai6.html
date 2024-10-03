@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number = [];
+        let inputNumber = prompt('nhập dãy số nguyên');
+        let numberFind= parseInt(prompt('nhập số nguyên cần tìm'));
+        number = inputNumber.split(' ').map(Number);
+        console.log(number);
+        let check = false;
+        for (let i=0; i<number.length; i++){
+            if (number[i] == numberFind){
+               check = true;
+               break;
+            }
+        }
+        if(check == true){
+            alert(`${numberFind} is in the array`);
+        }else{
+            alert(`${numberFind} is not in the array`);
+        }
+
+        // dùng phương thức includes 
+        // let number = [];
+        // let inputNumber = prompt('nhập dãy số nguyên');
+        // let numberFind= parseInt(prompt('nhập số nguyên cần tìm'));
+        // number = inputNumber.split(' ').map(Number);
+        // console.log(number);
+        // if (number.includes(numberFind)){ // includes dùng để kiểm tra phần tử
+        //                                  //có nằm trong mảng không nếu có trả về true nếu không trả về false
+        //     alert(`${numberFind} is in the array`);
+        // }else{
+        //     alert(`${numberFind} is not in the array`);
+        // }
+    </script>
+</body>
+</html>

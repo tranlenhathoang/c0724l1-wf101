@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number = [];
+        let inputNumber = prompt('Nhập vào dãy số bất kỳ');
+        number = inputNumber.split(' ').map(Number);
+        for (let i=0; i<number.length; i++){
+            for (let j=0; j<number.length-i; j++){
+                if(number[j] < number[j+1]){
+                    let index= number[j];
+                    number[j]=number[j+1];
+                    number[j+1]=index;
+                }
+            }
+        } 
+        document.write(number);
+    </script>
+</body>
+</html>

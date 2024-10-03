@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let number=[];
+        // inputNumber = prompt('nhập vào một số bất kỳ');
+        // number = inputNumber.split('').map(Number);
+        // let result = '';
+        // console.log(typeof number.length);
+        // for (let i=0; i<number.length; i++){
+        //     result += number[i];
+        //     if ((number[i]%2) === 0 && (number[i+1]%2) === 0){
+        //         result += '-';
+        //     }
+        // }
+        // document.write(result);
+
+
+    // dùng push
+    let number=[];
+        inputNumber = prompt('nhập vào một số bất kỳ');
+        number = inputNumber.split('').map(Number);
+        let result = [];
+        for (let i=0; i<number.length; i++){
+            result.push(number[i]);
+            if ((number[i]%2) === 0 && (number[i+1]%2) === 0){
+                result.push('-');
+            }
+        }
+        document.write(result.join(''));
+    </script>
+</body>
+</html>

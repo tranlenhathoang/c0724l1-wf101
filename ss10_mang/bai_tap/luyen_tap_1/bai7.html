@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number = [];
+        let inputNumber = prompt('nhập dãy số gồm 10 số bất kỳ');
+        number = inputNumber.split(' ').map(Number);
+        alert(`dãy số bạn đã nhập là: ${number}`);
+        let numberDelete = prompt('Nhập số muốn xoá khỏi dãy số');
+        for (let i=0; i<number.length; i++){
+            if (number[i] == numberDelete){
+                for (let j=i; j<number.length-1; j++){
+                    number[j] = number[j + 1];
+                }
+                number[number.length - 1] = 0; 
+            }
+        }
+        alert(`dãy số sau khi xoá phần tử là: ${number}`);
+    </script>
+</body>
+</html>

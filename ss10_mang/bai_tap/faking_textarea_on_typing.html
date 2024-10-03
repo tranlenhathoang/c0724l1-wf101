@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Type anthing slowly</h2>
+    <textarea rows="7" cols="70" onkeydown="down()" id="letter"></textarea>
+    <script>
+        let outputLetter =["tôi", "làm", "được", "rồi"];
+        let i = 0;
+        function down(){
+            if (i < outputLetter.length){
+                let beforeLetter = document.getElementById('letter').value;
+                document.getElementById('letter').value = beforeLetter + " " + outputLetter[i];
+                i++;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numberA=[];
+        let inputNumberA= prompt('nhập vào dãy số A gồm 10 chữ số');
+        numberA = inputNumberA.split(' ').map(Number);
+        let numberB=[];
+        let inputNumberB= prompt('nhập vào dãy số B gồm 10 chữ số');
+        numberB = inputNumberB.split(' ').map(Number);
+        let numberC= numberA.concat(numberB);
+        alert (`dãy số được gộp từ A và B là: ${numberC}`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number = [3, 5, 10, 11, 7, 9, 13, 15, 12, 14];
+        let count = 0;
+        let number2 = [];
+        let x = 0;
+        for (i=0; i<number.length; i++){
+            if (number[i]>=10){
+                number2[x] = number[i];
+                count++;
+                x++;
+            }
+        }
+        document.write(`Số phần tử lớn hơn bằng 10 là:  ${count} <br/>`);
+        document.write(`Các số lớn hơn bằng 10 trong mảng là:  ${number2}`);
+    </script>
+</body>
+</html>

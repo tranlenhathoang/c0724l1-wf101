@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="english" placeholder="English">
+    <input type="text" id="vietnam" placeholder="VietNam">
+    <input type="button" onclick="search()" value="Search">
+    <input type="reset" onclick="resetResult()" value="Reset">
+    <script>
+        let english = ["banana", "apple"];
+        let vietNam = ["chuối", "táo"];
+        function resetResult(){
+            document.getElementById('vietnam').value = '';
+            document.getElementById('english').value = '';
+        }
+        function search(){
+            let inputEnglish = document.getElementById('english').value;
+            if (english.includes(inputEnglish)){
+            let index = english.indexOf(inputEnglish);
+            document.getElementById('vietnam').value = vietNam[index];
+            }
+        }
+    </script>
+</body>
+</html>

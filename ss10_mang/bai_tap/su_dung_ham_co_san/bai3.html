@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let letter = [];
+        let inputLetter = prompt('nhập vào một chuỗi ký tự bất kỳ');
+        letter=inputLetter.split('');
+        for (let i=0; i<letter.length; i++){
+            if(letter[i] === letter[i].toLowerCase()){
+                letter[i] = letter[i].toUpperCase();
+            }else{
+                letter[i] = letter[i].toLowerCase();
+            }
+        }
+        outputLetter = letter.join('');
+        alert(`chuổi được in hoa là: ${outputLetter}`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="number">
+    <input type="button" value="ADD" onclick="add()">
+    <input type="button" value="DISPLAY" onclick="display()">
+    <p id="result"></p>
+    <script>
+        let number = [];
+        let index = 0;
+        function add(){
+            number[index] =  document.getElementById('number').value;
+            index++;
+            document.getElementById('number').value = "";
+        }
+        function display(){
+            index = 0;
+            let last = number.length - 1;
+            while (index<last){
+                let i = number[index];
+                number[index] = number[last];
+                number[last] = i;
+                index++;
+                last--;
+            }
+            document.getElementById('result').innerHTML = number;
+        }
+        // người dùng chỉ cần nhập 1 lần
+        //  let number=[];
+        //  function add(){
+        //     let input = document.getElementById('number').value;
+        //     number = input.split(' ').map(Number);
+        //     document.getElementById('number').value = "";
+        //     alert(`dãy số bạn vừa nhập là ${number}`);
+        //  }
+        //  function display(){
+        //     index = 0;
+        // let last = number.length - 1;
+        // while (index<last){
+        //     let i = number[index];
+        //     number[index] = number[last];
+        //     number[last] = i;
+        //     index++;
+        //     last--;
+        // }
+        // document.getElementById('result').innerHTML = number;
+        // }    
+    </script>
+</body>
+</html>
