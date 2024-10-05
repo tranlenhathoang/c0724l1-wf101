@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let character = ['c', 's', 'c', '2', '6', '1'];
+        let first = 0;
+        let last = character.length - 1;
+        while (first<last){
+            let saver = character[first];
+            character[first] = character[last];
+            character[last] = saver;
+            first++;
+            last--;
+        }
+        document.write(`mảng sau khi thực hiện đảo ngược là ${character.join('')}`);
+    </script>
+</body>
+</html>

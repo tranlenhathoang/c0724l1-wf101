@@ -11,7 +11,7 @@
     <script>
         let outputLetter =["tôi", "làm", "được", "rồi"];
         let i = 0;
-        function down(){
+        function down(){ // làm thế nào để khi kích nó mất đi ký tự mình kích
             if (i < outputLetter.length){
                 let beforeLetter = document.getElementById('letter').value;
                 document.getElementById('letter').value = beforeLetter + " " + outputLetter[i];

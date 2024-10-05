@@ -20,7 +20,7 @@
         function search(){
             let inputEnglish = document.getElementById('english').value;
             if (english.includes(inputEnglish)){
-            let index = english.indexOf(inputEnglish);
+            let index = english.indexOf(inputEnglish); //indexOf tìm kiếm vị trị trong mảng
             document.getElementById('vietnam').value = vietNam[index];
             }
         }

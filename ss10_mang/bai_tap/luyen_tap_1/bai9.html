@@ -15,6 +15,31 @@
         numberB = inputNumberB.split(' ').map(Number);
         let numberC= numberA.concat(numberB);
         alert (`dãy số được gộp từ A và B là: ${numberC}`);
+
+        // có thể dùng 2 vòng lặp for để nối
+        // let arr1 = [1,2,3];
+        // let arr2 = [4,5,6];
+        // let arr=[];
+        // for (let i=0; i<arr1.length; i++){
+        //     arr.push(arr1[i]);
+        // }
+        // for (let i=0; i<arr2.length; i++){
+        //     arr.push(arr2[i]);
+        // }
+        // alert(arr);
+
+        // cách dùng 1 vòng for để nối 2 mảng
+        // let arr1 =[1,2,3];
+        // let arr2 =[4,5,6];
+        // let arr=[];
+        // for (let i=0; i<arr1.length + arr2.length; i++){
+        //  if(i<arr1.length){
+        //      arr.push(arr[i]);
+        //  }else{
+        //      arr.push(arr2[i-arr1.length]);
+        //  }
+        //}
+        // alert(arr);
     </script>
 </body>
 </html>

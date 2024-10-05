@@ -7,20 +7,34 @@
 </head>
 <body>
     <script>
+        let n;
+        do {
+            n = parseInt(prompt('nhập độ dài của mảng'));
+        }while(n<=0||n>20||isNaN(n))
         let number = [];
-        let inputNumber = prompt('nhập dãy số gồm 10 số bất kỳ');
-        number = inputNumber.split(' ').map(Number);
+        let i;
+        // dùng for để nhập
+        for (i=0; i<n; i++){
+        let inputNumber = parseInt(prompt(`nhập số thứ ${i}`));
+        number[i] = inputNumber;
+        }
+        // let inputNumber = parseInt(prompt(`nhập dãy số gồm ${n} số bất kỳ`));
+        // number = inputNumber.split(' '); // không được dùng khi đi thi
         alert(`dãy số bạn đã nhập là: ${number}`);
         let numberDelete = prompt('Nhập số muốn xoá khỏi dãy số');
-        for (let i=0; i<number.length; i++){
+        for (i=0; i<number.length; i++){
             if (number[i] == numberDelete){
                 for (let j=i; j<number.length-1; j++){
                     number[j] = number[j + 1];
                 }
+                i--;
                 number[number.length - 1] = 0; 
             }
         }
         alert(`dãy số sau khi xoá phần tử là: ${number}`);
+
+       
+
     </script>
 </body>
 </html>

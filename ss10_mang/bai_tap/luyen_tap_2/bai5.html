@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let stringOne =[];
+        let inputStringOne = prompt('nhập vào chuỗi thứ Nhất');
+        stringOne = inputStringOne.split(' ');
+        let stringTwo =[];
+        let inputStringTwo = prompt('nhập vào chuỗi thứ Hai');
+        stringTwo = inputStringTwo.split(' ');
+        if (stringOne.length == stringTwo.length){
+            check=true;
+            for (let i=0; i<stringOne.length; i++){
+                if(stringOne[i] !== stringTwo[i]){
+                    check = false;
+                    break;
+                }
+            }
+            if (check == true){
+                alert('Hai chuỗi này giống nhau');
+            }else{
+                alert('Hai chuỗi này không giống nhau');
+            }
+        }else{
+            alert('hai chuỗi này có độ dài không giống nhau, vì vậy không thể giống nhau');
+        }
+    </script>
+</body>
+</html>
