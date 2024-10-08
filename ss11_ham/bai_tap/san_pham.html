@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="display()"></button>
+    <p id="result"></p>
+    <script>
+        let producList = ["samsung", "Nokia", "iphone"];
+        function display(){
+            let tableString= `<table border="1" style="border-collapse: collapse">
+                                    <tr>
+                                        <td>STT</td>
+                                        <td>Name</td>
+                                    </tr>`;
+            for (let i=0; i<producList.length; i++){
+                tableString += `<tr>
+                                        <td>${i+1}</td>
+                                        <td>${producList[i]}</td>
+                                     </tr>`;
+            }                    
+            document.getElementById('result').innerHTML = tableString;
+        }
+    </script>
+</body>
+</html>

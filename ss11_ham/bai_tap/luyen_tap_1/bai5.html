@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="searchStart()">
+    <p id="result"></p>
+    <script>
+        let arr1 = ["Polaris","Aldebaran","Deneb","Vega","Altair","Dubhe","Regulus"];
+        let arr2 = ["Ursa Minor","Tarurus","Cygnus","Lyra","Aquila","Ursa Major","Leo"];
+        function start(inputStart){
+            for (let i=0; i<arr1.length; i++){
+                let index = arr1.indexOf(inputStart);
+                if (index < 0){
+                    return alert ('không tìm thấy chòm sao tương ứng');
+                }else {
+                    return arr2[i];
+                }
+            }
+        }
+        function searchStart(){
+            let inputStart = prompt('Nhập tên ngôi sao cần tìm');
+            let result = start(inputStart);
+            document.getElementById('result').innerHTML = `Chòm sao tương ứng là: ${result}`;
+        }
+    </script>
+</body>
+</html>
