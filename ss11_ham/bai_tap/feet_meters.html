@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <script>
+        let foot = parseInt(prompt('nhập vào foot'));
+        let meter = parseInt(prompt('nhập vào meter'));
+        function footToMeter(foot){
+            let meter = 0.305 * foot;
+            return meter;
+        }
+        function meterToFoot(meter){
+            let foot = 3.279 * meter;
+            return foot;
+        }
+        document.getElementById('result1').innerHTML = (`${foot}Feet = ${footToMeter(foot)}`);
+        document.getElementById('result2').innerHTML = (`${meter}meters = ${meterToFoot(meter)}`);
+    </script>
+</body>
+</html>
