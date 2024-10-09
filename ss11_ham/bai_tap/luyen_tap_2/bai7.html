@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[];
+        let n=2;
+        for (let i=0; i<n; i++){
+            let number= parseInt(prompt(`nhập vào số nguyên thứ ${i}`));
+            arr[i]=number;
+        }
+        function position(array){
+                let assign = array[0];
+                array[0]=array[1];
+                array[1] = assign;
+                return array;
+        }
+        alert(position(arr));
+    </script>
+</body>
+</html>

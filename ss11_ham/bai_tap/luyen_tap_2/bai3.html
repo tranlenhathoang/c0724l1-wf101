@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number = parseInt(prompt('nhập một số nguyên bất kỳ'));
+        let result;
+        function factorial(number){
+            if (number<0){
+                return undefined;
+            } 
+                result = 1;
+            for (let i=2; i<= number; i++){
+                result *= i;
+            }
+            return result;
+        }
+        alert (`Giai thừa của số ${number} là: ${factorial(number)}`);
+    </script>
+</body>
+</html>

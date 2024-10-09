@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number = parseInt(prompt('nhập một số bất kỳ'));
+        function isPrime(numberCheck){
+        if (numberCheck<2)
+            return false;
+        for (let i=2; i <= Math.sqrt(numberCheck); i++){
+            if (numberCheck % i === 0)
+            return false;
+        }
+        return true;
+        }
+        if (isPrime(number) == true){
+            alert (`${number} là một số nguyên tố`);
+        }else {
+            alert (`${number} không phải là một số nguyên tố`);
+        }
+    </script>
+</body>
+</html>

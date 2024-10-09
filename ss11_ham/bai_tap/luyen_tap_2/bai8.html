@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[];
+        let number= prompt('nhập vào dãy số nguyên bất kỳ');
+            arr = number.split(' ');
+        // function position(array){
+        //     for(let i=0; i<Math.floor(array.length/2); i++){
+        //         let assign = array[i];
+        //         array[i]=array[array.length - 1 - i];
+        //         array[array.length - 1- i] = assign;
+        //     }
+        //     return array.join(' ');
+        // }
+        // alert(position(arr));
+
+
+        //dùng while 
+        function position(array){
+            let first = 0;
+            let last = array.length - 1;
+            while(first<last){
+                let assign = array[first];
+                array[first]=array[last];
+                array[last]=assign;
+                first++;
+                last--;
+            }
+            return array.join(' ');
+        }
+        alert(position(arr));
+    </script>
+</body>
+</html>

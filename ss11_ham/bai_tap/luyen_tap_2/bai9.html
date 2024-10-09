@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let character =[];
+        let inputCharacter = prompt('nhập một chuỗi ký tự bất kỳ');
+        character = inputCharacter.split('');
+        alert(character);
+        let checkCharacter = prompt('nhập vào ký tự cần kiểm tra');
+        function check(array, char){
+            let count = 0;
+            for(let i=0; i<array.length; i++){
+                if (array[i] === char){
+                    count++;
+                }
+            }
+            if (count > 0){
+                return count;
+            }else{
+                return -1;
+            }
+        }
+        alert (`kết quả là: ${check(character, checkCharacter)}`);
+    </script>
+</body>
+</html>

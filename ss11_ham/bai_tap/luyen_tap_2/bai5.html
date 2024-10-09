@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[];
+        let number;
+        let n = 3;
+        for (let i=0; i<n;i++){
+            number = parseInt(prompt(`nhập vào số nguyên thứ ${i}`));
+            arr[i] = number;
+        }
+        function checkMin(array){
+            let min = array[0];
+            for (let i=0; i<array.length; i++){
+                if (array[i]<min){
+                    min = array[i];
+                }
+            }
+            return min;
+        }
+        alert (`số nguyên nhỏ nhất trong các phần tử vừa nhập là: ${checkMin(arr)}`);
+    </script>
+</body>
+</html>
