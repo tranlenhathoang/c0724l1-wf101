@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            box-sizing: border-box;
+        }
+        .addProduct{
+            width: 300px;
+            height: 70px;
+            background-color: rgb(229, 227, 225);
+            
+        }
+        input{
+            width: 200px;
+            height: 25px;
+            border: 1px solid rgb(214, 213, 211) ;
+            border-radius: 3px;
+        }
+        button{
+            height: 28px;
+            background-color: green;
+            border: 1px solid rgb(214, 213, 211);
+            border-radius: 3px;
+        }
+        .displayproduct{
+            background-color:white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Add New Product</h2>
+    <div class="addProduct">
+        <input type="text" id="newproduct" placeholder="New Product">
+        <button onclick="add()">Add</button>
+    </div>
+    <button onclick="display()" class="displayproduct">Display All Product</button>
+    <p id="result"></p>
+    <script>
+        let productList = ["samsung", "Nokia", "iphone"];
+        function display(){
+            let tableString= `<table border="1" style="border-collapse: collapse">
+                                    <tr>
+                                        <td>STT</td>
+                                        <td>Product Name</td>
+                                    </tr>`;
+            for (let i=0; i<productList.length; i++){
+                tableString +=      `<tr>
+                                        <td>${i+1}</td>
+                                        <td>${productList[i]}</td>
+                                        <td><button onclick="edit(${i})">Edit</button></td>
+                                        <td><button onclick="deleteProduct(${i})">Delete</button></td>
+                                     </tr>`;
+            }
+            tableString += `</table>`;                    
+            document.getElementById('result').innerHTML = tableString;
+        }
+        function add(){
+            let newProductInput = document.getElementById("newproduct").value;
+            if (newProductInput === ""){
+                alert('Vui lòng nhập tên sản phẩm');
+                return;
+            }
+            productList.push(newProductInput);
+            document.getElementById("newproduct").value = '';
+            display();
+            alert('Thêm sản phẩm thành công.');
+        }
+        function deleteProduct(index){
+            let confirmDelete = confirm(`Bạn có chắc chắn muốn xoá sản phẩm ${productList[index]} không?`);
+            if (confirmDelete){
+                productList.splice(index,1);
+                display();
+                alert('Xoá sản phẩm thành công.');
+            }
+        }
+        function edit(index){
+            let editProduct = prompt(`Nhập tên mới cho sản phẩm: ${productList[index]}`);
+            if (editProduct === ''){
+                alert('Tên sản phẩm không được để trống.');
+                return;
+            }
+            productList[index] = editProduct;
+            display();
+            alert('Cập nhật sản phẩm thành công.');
+        }
+    </script>
+</body>
+</html>
