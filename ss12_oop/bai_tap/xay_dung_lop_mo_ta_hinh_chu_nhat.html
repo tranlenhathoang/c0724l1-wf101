@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
+    <script>
+        class Rectangle {
+            constructor(width, height){
+                this.width = width;
+                this.height = height;
+            }
+            getAcreage(){
+                return this.width * this.height;
+            }
+            getCircuit(){
+                return (this.width + this.height)*2;
+            }
+            draw(){
+                let canvas = document.getElementById("canvas").getContext('2d');
+                canvas.fillRect(50, 50, this.width, this.height);
+            }
+        }
+        let newRectangle = new Rectangle(200, 100);
+        let newDraw = newRectangle.draw();
+        let acreage = newRectangle.getAcreage();
+        let circuit = newRectangle.getCircuit();
+        document.write(newDraw);
+        document.write(acreage + '</br>');
+        document.write(circuit+ '</br>');
+    </script>
+</body>
+</html>

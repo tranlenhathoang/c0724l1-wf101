@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Temperature {
+            constructor(c) {
+                this.c = c;
+            }
+            getFahrenheit(){
+                return ((9/5)*this.c) +32;
+            }
+            getKelvin(){
+                return this.c + 273.15;
+            }
+        }
+        let newTemperature = new Temperature (25);
+        let fahrenheit = newTemperature.getFahrenheit();
+        let kelvin = newTemperature.getKelvin();
+        document.write("F: " + fahrenheit + "</br>");
+        document.write("K: " + kelvin);
+    </script>
+</body>
+</html>
