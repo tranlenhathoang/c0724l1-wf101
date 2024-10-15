@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>Danh sách sản phẩm</h2>
+        <button onclick="addNewItem('product')">Thêm sản phẩm mới</button>
+        <table id="productTable" class="table">
+            <tr>
+                <td>ID</td>
+                <td>NAME</td>
+                <td>PRICE</td>
+                <td>QUANTITY</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h2>Danh sách khách hàng</h2>
+        <button onclick="addNewItem('customer')">Thêm khách hàng mới</button>
+        <table id="customerTable" class="table">
+            <tr>
+                <td>ID</td>
+                <td>NAME</td>
+                <td>ADDRESS</td>
+                <td>PHONE</td>
+                <td>MAIL</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h2>Danh sách order</h2>
+        <button onclick="addNewItem('order')">Thêm đơn hàng mới</button>
+        <table id="orderTable" class="table">
+            <tr>
+                <td>ID</td>
+                <td>CUSTOMERID</td>
+                <td>PRODUCT</td>
+                <td>STATUS</td>
+                <td>DATE</td>
+            </tr>
+        </table>
+    </div>
+    <div id="formInput">
+        <h2>Thêm / Sửa thông tin</h2>
+        <form id ="dataForm">
+            <input type="hidden" id="objectType">
+            <input type="hidden" id="objectId">
+            <div id="formFields">
+
+            </div>
+            <button type="button" onclick="submitForm()">Lưu</button>
+            <button type="button" onclick="clearForm()">Huỷ</button>
+        </form>
+    </div>
+    <script>
+        class Product {
+            constructor(id, name, price, quantity){
+                this.id = id;
+                this.name = name;
+                this.price = price;
+                this.quantity = quantity;
+            }
+        }
+        class Customer {
+            constructor(id, name, address, phone, mail){
+                this.id = id;
+                this.name = name;
+                this.address = address;
+                this.phone = phone;
+                this.mail = mail;
+            }
+        }
+        class Order {
+            constructor(id, customerId, product, status, date){
+                this.id = id;
+                this.customerId = customerId;
+                this.product = product;
+                this.status = status;
+                this.date = date;
+            }
+        }
+        let products = [];
+        let customers = [];
+        let orders = [];
+        function productTable (){
+            let tableString =  `<tr>
+                                     <td>ID</td>
+                                     <td>NAME</td>
+                                     <td>PRICE</td>
+                                     <td>QUANTITY</td>
+                                </tr>`;
+            for (let i=0; i<products.length; i++){
+                tableString += `<tr>
+                                     <td>${products[i].id}</td>
+                                     <td>${products[i].name}</td>
+                                     <td>${products[i].price}</td>
+                                     <td>${products[i].quantity}</td>
+                                     <td>
+                                        <button onclick="editItem('product',${i})">Sửa</button>
+                                        <button onclick="deleteItem('product',${i})">Xoá</button>
+                                     </td>
+                                </tr>`;
+            }
+            document.getElementById('productTable').innerHTML = tableString;
+        }
+        function customerTable(){
+            let tableString =  `<tr>
+                                    <td>ID</td>
+                                    <td>NAME</td>
+                                    <td>ADDRESS</td>
+                                    <td>PHONE</td>
+                                    <td>MAIL</td>
+                                </tr>`;
+            for (let i=0; i<customers.length; i++){
+                tableString += `<tr>
+                                     <td>${customers[i].id}</td>
+                                     <td>${customers[i].name}</td>
+                                     <td>${customers[i].address}</td>
+                                     <td>${customers[i].phone}</td>
+                                     <td>${customers[i].mail}</td>
+                                     <td>
+                                        <button onclick="editItem('customer',${i})">Sửa</button>
+                                        <button onclick="deleteItem('customer',${i})">Xoá</button>
+                                     </td>
+                                </tr>`;
+            }
+            document.getElementById('customerTable').innerHTML = tableString;
+        }
+        function oderTable(){
+            let tableString =  `<tr>
+                                    <td>ID</td>
+                                    <td>CUSTOMERID</td>
+                                    <td>PRODUCT</td>
+                                    <td>STATUS</td>
+                                    <td>DATE</td>
+                                </tr>`;
+            for (let i=0; i<orders.length; i++){
+                tableString += `<tr>
+                                     <td>${orders[i].id}</td>
+                                     <td>${orders[i].customerId}</td>
+                                     <td>${orders[i].product}</td>
+                                     <td>${orders[i].status}</td>
+                                     <td>${orders[i].date}</td>
+                                     <td>
+                                        <button onclick="editItem('order',${i})">Sửa</button>
+                                        <button onclick="deleteItem('order',${i})">Xoá</button>
+                                     </td>
+                                </tr>`;
+            }
+            document.getElementById('orderTable').innerHTML = tableString;
+        }
+        function updateTable(){
+            productTable();
+            customerTable();
+            orderTable();
+        }
+        function addNewItem(type){
+            document.getElementById('objectType').value = type;
+            document.getElementById('objectId').value = '';
+            let formFields ='';
+            if (type === 'product'){
+                formFields = `
+                    <label>ID:</label>
+                    <input type="text" id="id"></br>
+                    <label>Name:</label>
+                    <input type="text" id="name"></br>
+                    <label>Price:</label>
+                    <input type="number" id="price"></br>
+                    <label>Quantity:</label>
+                    <input type="number" id="quantity"></br>
+                `;
+            }else if(type === 'customer'){
+                formFields = `
+                    <label>ID:</label>
+                    <input type="text" id="id"></br>
+                    <label>Name:</label>
+                    <input type="text" id="name"></br>
+                    <label>Address:</label>
+                    <input type="text" id="address"></br>
+                    <label>Phone:</label>
+                    <input type="text" id="phone"></br>
+                    <label>Mail:</label>
+                    <input type="email" id="mail"></br>                
+                `;
+            }else if(type==='order'){
+                formFields = `
+                    <label>ID:</label>
+                    <input type="text" id="id"></br>
+                    <label>CustomerID:</label>
+                    <input type="text" id="customerId"></br>
+                    <label>Product:</label>
+                    <input type="text" id="product"></br>
+                    <label>Status:</label>
+                    <input type="text" id="status"></br>
+                    <label>Date:</label>
+                    <input type="date" id="date"></br>                
+                `;
+            }
+            document.getElementById('formFields').innerHTML = formFields;
+        }
+        function deleteItem(type, index){
+            if (type ==='product'){
+                products.splice(index,1);
+            }else if(type === 'customer'){
+                customers.splice(index,1);
+            }else if(type ==='order'){
+                orders.splice(index,1);
+            }
+            updateTable();
+        }
+        
+        function editItem(type,index){
+            document.getElementById('objectType').value = type;
+            document.getElementById('objectId').value = index;
+            let formFields ='';
+            if (type === 'product'){
+                let product = products[index];
+                formFields = `
+                    <label>ID:</label>
+                    <input type="text" id="id" value="${product.id}"></br>
+                    <label>Name:</label>
+                    <input type="text" id="name" value="${product.name}"></br>
+                    <label>Price:</label>
+                    <input type="number" id="price" value="${product.price}"></br>
+                    <label>Quantity:</label>
+                    <input type="number" id="quantity" value="${product.quantity}"></br>
+                `;
+            }else if(type === 'customer'){
+                let customer = customers[index];
+                formFields = `
+                    <label>ID:</label>
+                    <input type="text" id="id" value="${customer.id}"></br>
+                    <label>Name:</label>
+                    <input type="text" id="name" value="${customer.name}"></br>
+                    <label>Address:</label>
+                    <input type="text" id="address" value="${customer.address}"></br>
+                    <label>Phone:</label>
+                    <input type="text" id="phone" value="${customer.phone}"></br>
+                    <label>Customer:</label>
+                    <input type="email" id="mail" value="${customer.mail}"></br>                
+                `;
+            }else if(type==='order'){
+                let order = orders[index];
+                formFields = `
+                    <label>ID:</label>
+                    <input type="text" id="id" value="${order.id}"></br>
+                    <label>CustomerID:</label>
+                    <input type="text" id="customerId" value="${order.customerId}"></br>
+                    <label>Product:</label>
+                    <input type="text" id="product" value="${order.product}"></br>
+                    <label>Status:</label>
+                    <input type="text" id="status" value="${order.status}"></br>
+                    <label>Date:</label>
+                    <input type="date" id="date" value="${order.date}"></br>                
+                `;
+            }
+            document.getElementById('formFields').innerHTML = formFields;
+        }
+        function deleteItem(type, index){
+            if (type ==='product'){
+                products.splice(index,1);
+            }else if(type === 'customer'){
+                customers.splice(index,1);
+            }else if(type ==='order'){
+                orders.splice(index,1);
+            }
+            updateTable();
+        }
+        function submitForm(){
+            let type = document.getElementById('objectType').value;
+            let index = document.getElementById('objectId').value;
+            if(type === 'product'){
+                let id = document.getElementById('id').value;
+                let name = document.getElementById('name').value;
+                let price = document.getElementById('price').value;
+                let quantity = document.getElementById('quantity').value;
+            if(index ===''){
+                products.push(new Product(id, name, price, quantity));
+            }else {
+                products[index].id = id;
+                products[index].name = name;
+                products[index].price = price;
+                products[index].quantity = quantity;
+
+            }
+            }else if(type==='customer'){
+                let id = document.getElementById('id').value;
+                let name = document.getElementById('name').value;
+                let address = document.getElementById('address').value;
+                let phone = document.getElementById('phone').value;
+                let mail = document.getElementById('mail').value;
+            if(index ===''){
+                customers.push(new Customer(id, name, address, phone, mail));
+            }else {
+                customers[index].id = id;
+                customers[index].name = name;
+                customers[index].address = address;
+                customers[index].phone = phone;
+                customers[index].mail = mail;
+            }
+            }else if(type==='order'){
+                let id = document.getElementById('id').value;
+                let customerId = document.getElementById('customerId').value;
+                let product = document.getElementById('product').value;
+                let status = document.getElementById('status').value;
+                let date = document.getElementById('date').value;
+            if(index ===''){
+                orders.push(new Order(id, customerId, product, status, date));
+            }else {
+                orders[index].id = id;
+                orders[index].customerId = customerId;
+                orders[index].product = product;
+                orders[index].status = status;
+                orders[index].date = date;
+            }
+            }
+            updateTable();
+            clearForm();
+        }
+        function clearForm(){
+            document.getElementById('dataForm').reset();
+            document.getElementById('objectType').value = '';
+            document.getElementById('objectId').value = '';
+            document.getElementById('formFields').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

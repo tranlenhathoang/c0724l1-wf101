@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Battery {
+            constructor (energy){
+                this.energy = energy;
+            }
+            setEnergy(energy){
+                this.energy =energy;
+            }
+            getEnergy(){
+                return this.energy;
+            }
+            decreaseEnergy(){
+                if (this.energy >0){
+                    this.energy--;
+                }
+            }
+        }
+        class FlashLamp{
+            constructor(status, battery){
+                this.status = status;
+                this.battery = battery;
+            }
+            setBattery(battery){
+                this.battery = battery;
+            }
+            getBatteryInfo(){
+                return this.battery.getEnergy();
+            }
+            light(){
+                if (this.status){
+                    if (this.battery.getEnergy() > 0){
+                        alert('lighting');
+                    }else {
+                        alert('Đèn hết pin');
+                        this.turnOff;
+                    }
+                }else{
+                    alert('Not lighting')
+                }
+            }
+            turnOn(){
+                return this.status = true;
+            }
+            turnOff(){
+                return this.status = false;
+            }
+        }
+        let battery = new Battery(10);
+        let flashLamp = new FlashLamp(false, battery);
+        document.write(`Battery info: ${flashLamp.battery.getEnergy()} </br>`);
+        flashLamp.turnOff();
+        flashLamp.light();
+    </script>
+</body>
+</html>
