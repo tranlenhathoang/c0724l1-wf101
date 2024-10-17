@@ -53,12 +53,19 @@
         .input {
             margin: 10px 0 0 10px;
         }
+        .input-search {
+            margin-left: 3px;
+            border: 1px solid;
+            border-radius: 3px;
+        }
     </style>
 </head>
 <body>
     <div class="head-manage"><h1>Quản Lý Bán Hàng</h1></div>
     <div class="product">
         <div class="headTable"><h2>Danh sách sản phẩm</h2></div>
+        <input type="text" id="searchProduct" placeholder="NAME OR ID" class="input-search">
+        <button onclick="search('product')" class="btn btn-info">Tìm Kiếm</button>
         <button onclick="addNewItem('product')" class="button-add btn btn-success">Thêm sản phẩm mới</button>
         <div class="list-product">
             <table id="productTable" class="table">
@@ -79,6 +86,8 @@
     </div>
     <div class="customer">
         <div class="headTable"><h2>Danh sách khách hàng</h2></div>
+        <input type="text" id="searchCustomer" placeholder="NAME OR ID" class="input-search">
+        <button onclick="search('customer')" class="btn btn-info">Tìm Kiếm</button>
         <button onclick="addNewItem('customer')" class="button-add btn btn-success">Thêm khách hàng mới</button>
         <div class="list-customer">
             <table id="customerTable" class="table">
@@ -100,6 +109,8 @@
     </div>
     <div class="order">
         <div class="headTable"><h2>Danh sách order</h2></div>
+        <input type="text" id="searchOrder" placeholder="NAME OR ID" class="input-search">
+        <button onclick="search('Order')" class="btn btn-info">Tìm Kiếm</button>
         <button onclick="addNewItem('order')" class="button-add btn btn-success">Thêm đơn hàng mới</button>
         <div class="lish-order">
             <table id="orderTable" class="table">
@@ -219,6 +230,93 @@
             customerTable();
             orderTable();
         }
+        function search(type){
+            let result = [];
+            if(type === 'product'){
+                let info = document.getElementById('searchProduct').value;
+                result = products.filter(product =>{
+                    return product.name.includes(info) || product.id.includes(info);
+                })
+                displayResult(result, 'product');
+            }else if (type === 'customer'){
+                let info = document.getElementById('searchCustomer').value;
+                result = customers.filter(customer =>{
+                    return customer.name.includes(info) || customer.id.includes(info);
+                })
+                displayResult(result, 'customer');
+            }else if (type === 'order'){
+                let info = document.getElementById('searchOrder').value;
+                result = orders.filter(order =>{
+                    return order.name.includes(info) || order.id.includes(info);
+                })
+                displayResult(result, 'order');
+            }
+            if (result.length === 0){
+                alert('Không tìm thấy sản phẩm');
+            }
+        }
+        function displayResult(result, type){
+            let tableString ='';
+            if (type === 'product'){
+                result.forEach((product, index) => {
+                    tableString += `<tr>
+                                     <td>${product.id}</td>
+                                     <td>${product.name}</td>
+                                     <td>${product.price}</td>
+                                     <td>${product.quantity}</td>
+                                     <td>
+                                        <button class="btn btn-primary" onclick="editItem('product',${index})">Sửa</button>
+                                        <button class="btn btn-danger" onclick="deleteItem('product',${index})">Xoá</button>
+                                     </td>
+                                </tr>`;
+            })
+            document.getElementById('tbodyProduct').innerHTML = tableString;
+            }else if (type === 'customer'){
+                result.forEach((customer, index) => {
+                    tableString += `<tr>
+                                     <td>${customer.id}</td>
+                                     <td>${customer.name}</td>
+                                     <td>${customer.address}</td>
+                                     <td>${customer.phone}</td>
+                                     <td>${customer.mail}</td>
+                                     <td>
+                                        <button class="btn btn-primary" onclick="editItem('customer',${index})">Sửa</button>
+                                        <button class="btn btn-danger" onclick="deleteItem('customer',${index})">Xoá</button>
+                                     </td>
+                                </tr>`;
+            })
+            document.getElementById('tbodyCustomer').innerHTML = tableString;
+            }else if (type === 'order'){
+                result.forEach((order, index) => {
+                    tableString += `<tr>
+                                     <td>${order.id}</td>
+                                     <td>${order.customerId}</td>
+                                     <td>${order.product}</td>
+                                     <td>${order.status}</td>
+                                     <td>${order.date}</td>
+                                     <td>
+                                        <button class="btn btn-primary" onclick="editItem('order',${index})">Sửa</button>
+                                        <button class="btn btn-danger" onclick="deleteItem('order',${index})">Xoá</button>
+                                     </td>
+                                </tr>`;
+            })
+            document.getElementById('tbodyOrder').innerHTML = tableString;
+            }
+        }
+        function getCustomerOptions(selectedId =''){
+            let options = '<option value="">--Chọn Khách Hàng--</option>';
+            customers.forEach(customer =>{
+                options +=`<option value="${customer.id}" ${customer.id === selectedId ? 'selected' : ''}>${customer.name}</option>`;
+            })
+            return options;
+        }
+        function getProductOptions(selectedProduct =''){
+            let options = '<option value="">--Chọn Sản Phẩm--</option>';
+            products.forEach(product =>{
+                options += `<option value="${product.id}" ${product.id === selectedProduct ? 'selected' : ''}>${product.name}</option>`;
+            })
+            return options;
+        }
         function addNewItem(type){
             document.getElementById('objectType').value = type;
             document.getElementById('objectId').value = '';
@@ -323,7 +421,9 @@
                             <label class="col-form-label">CustomerID:</label>
                         </div>
                         <div class="col-auto">
-                            <input class="form-control" type="text" id="customerId"></br>
+                            <select class="form-control" type="text" id="customerId">
+                                ${getCustomerOptions()}
+                            </select></br>
                         </div>
                     </div>      
                     
@@ -332,7 +432,9 @@
                             <label class="col-form-label">Product:</label>
                         </div>
                         <div class="col-auto">
-                            <input class="form-control" type="text" id="product"></br>
+                            <select class="form-control" type="text" id="product">
+                                ${getProductOptions()}
+                            </select></br>
                         </div>
                     </div>      
                     
@@ -474,7 +576,9 @@
                             <label class="col-form-label">CustomerID:</label>
                         </div>
                         <div class="col-auto">
-                            <input class="form-control" type="text" id="customerId" value="${order.customerId}></br>
+                            <select class="form-control" type="text" id="customerId">
+                                ${getCustomerOptions(order.customerId)}
+                            </select></br>
                         </div>
                     </div>                          
                     <div class="row">
@@ -482,7 +586,9 @@
                             <label class="col-form-label">Product:</label>
                         </div>
                         <div class="col-auto">
-                            <input class="form-control" type="text" id="product" value="${order.product}"></br>
+                            <select class="form-control" type="text" id="product">
+                                ${getProductOptions(order.product)}
+                            </select></br>
                         </div>
                     </div>                          
                     <div class="row">
