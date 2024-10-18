@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let inputNumber = prompt('Nhập một số có 4 chữ số');
+        findMaxNumber(inputNumber);
+        function findMaxNumber(n){
+            let number = n.toString();
+            if (number.length !== 4){
+                alert(-1);
+            }else {
+                let maxNumber = 0; 
+                for (let i=0; i<number.length; i++){
+                    let newNumber = parseInt(number.slice(0,i) + number.slice(i+1));
+                    if (newNumber > maxNumber){
+                        maxNumber = newNumber;
+                    }
+                }
+                alert(`Số lớn nhất có được từ ${inputNumber} sau khi xoá 1 chữ số là ${maxNumber}`);
+            }
+        
+        }
+    </script>
+</body>
+</html>

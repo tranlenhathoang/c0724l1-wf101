@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x = prompt('nhập một phân số theo định dạng xx/yy');
+        find(x);
+        function check(a,b){
+            while (b!== 0){
+                let temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+        function shortcut(numberA, numberB){
+            let valueMin = check((numberA), numberB);
+            let shortNumberA = numberA / valueMin;
+            let shortNumberB = numberB / valueMin;
+            return `${shortNumberA}/${shortNumberB}`;
+        }
+        function find(x){
+            let regex = /^-?\d+\/[1-9]\d*$/;
+            if (!regex.test(x)){
+                alert(`${x} không phải là phân số`);
+            }else {
+                let number = [];
+                number = x.split('/').map(Number);
+                let shortX = shortcut(number[0], number[1]);
+                alert(`${x} được sau khi được tối giản là ${shortX}`)
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n;
+        do{
+            n = parseInt(prompt('Nhập độ dài mảng số'));
+        } while (n<=0 || isNaN(n));
+        let number= [];
+        for (let i=0; i<n; i++){
+            inputNumber = parseInt(prompt(`Nhập phần tử thứ ${i} vào mảng`));
+            number[i]= inputNumber;
+        }
+        alert(`Mảng bạn vừa nhập là ${number}`);
+        let check = true
+        for (let i=0; i< number.length / 2; i++){
+            let first = number[i];
+            let last = number[number.length-1-i];
+            if (first !== last){
+                check = false;
+                break;
+            }
+        }
+        if (check === true){
+            alert('OK');
+        }else{
+            alert('NO');
+        }
+    </script>
+</body>
+</html>

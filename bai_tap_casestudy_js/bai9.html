@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n;
+        do {
+            n = parseFloat(prompt('Nhập độ dài n'));
+        }while (n % 2 !== 0);
+        let arr = [];
+        for (let i=0; i<n; i++){
+            let inputArr = parseInt(prompt(`Nhập phần tử thứ ${i} trong mảng`));
+            arr[i]= inputArr;
+        }
+        alert(`Mảng bạn vừa nhập là ${arr}`);
+        let check = true;
+        for (let i=0; i<arr.length; i+=2){
+            if(arr[i]>arr[i+1]){
+                check = false;
+                break;
+            }
+        }
+        if(check === true){
+            alert('OK');
+        }else{
+            alert('NO');
+        }
+    </script>
+</body>
+</html>

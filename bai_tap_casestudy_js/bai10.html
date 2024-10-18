@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let stringArray = [];
+        let inputString = prompt('nhập một chuỗi ký tự');
+        stringArray = inputString.split('');
+        let newCharacter = [];
+        checkString(stringArray);
+        function checkString(str){
+            characterCheck = ['a', 'e', 'i', 'o', 'u'];
+            for (let i=0; i<str.length; i++){
+                let char = str[i].toLowerCase();
+                if (characterCheck.includes(char)){
+                    if(newCharacter.includes(char) === false){
+                        newCharacter.push(char);
+                    }
+                }
+            }
+            alert(`Các nguyên âm trong chuỗi ${newCharacter}`);
+            return newCharacter;
+        }
+    </script>
+</body>
+</html>
