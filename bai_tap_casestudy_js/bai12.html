@@ -6,25 +6,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Document</title>
+    <style>
+        .manager-student {
+            margin: 10px 5px;
+        }
+        button{
+            width: 200px;
+        }
+        table{
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <button onclick="addStudent()">Thêm mới học viên</button>
-    <button onclick="editStudent()">Sửa thông tin học viên</button>
-    <button onclick="delStudent()">Xoá học viên</button>
-    <table class="table table-borderless">
-        <thead>
-            <tr>
-                <td>Mã học viên</td>
-                <td>Tên</td>
-                <td>Lớp</td>
-                <td>Email</td>
-                <td>Ngày Sinh</td>
-            </tr>
-        </thead>
-       <tbody id="infoStudent">
-
-       </tbody>
-    </table>    
+    <div class="manager-student">
+        <div class="button">
+            <button onclick="addStudent()" class="btn btn-primary">Thêm mới học viên</button>
+            <button onclick="editStudent()" class="btn btn-success">Sửa thông tin học viên</button>
+            <button onclick="delStudent()" class="btn btn-danger">Xoá học viên</button>
+        </div>
+        <div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>Mã học viên</td>
+                        <td>Tên</td>
+                        <td>Lớp</td>
+                        <td>Email</td>
+                        <td>Ngày Sinh</td>
+                    </tr>
+                </thead>
+               <tbody id="infoStudent">
+        
+               </tbody>
+            </table>    
+        </div>
+    </div>
  <script>
     class Info {
         constructor(id, name, studentClass, mail, date){
@@ -53,27 +71,35 @@
         document.getElementById('infoStudent').innerHTML = studentTable;
     }
     function addStudent(){
-        let checkRegex = /^[HV]{2}[0-9]{4}$/;
+        let checkRegexId = /^[HV]\-{2}[0-9]{4}$/;
+        let checkRegexDate = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
         let id;
+        let date;
         do {
-             id = prompt('Nhập id của học viên');
-        }while (!checkRegex.test(id))
+             id = prompt('Nhập id của học viên theo định dạng HV-MSHV');
+        }while (!checkRegexId.test(id));
         let name = prompt('Nhập Name của học viên');
         let studentClass = prompt('Nhập lớp của học viên');
         let mail = prompt('Nhập mail của học viên');
-        let date = prompt('Nhập ngày sinh của học viên');
+        do {
+            date = prompt('Nhập ngày sinh của học viên');
+        }while (!checkRegexDate.test(date));
         let newStudent = new Info (id, name, studentClass, mail, date);
         infoStudent.push(newStudent);
         displayTable();
     }
     function editStudent(){
         let findId = prompt('Nhập ID học viên cần chỉnh sửa');
+        let checkRegexDate = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
+        let date;
         for (let i=0; i<infoStudent.length; i++){
             if(infoStudent[i].id === findId){
                 let name = prompt('Nhập Name của học viên');
                 let studentClass = prompt('Nhập lớp của học viên');
                 let mail = prompt('Nhập mail của học viên');
-                let date = prompt('Nhập ngày sinh của học viên');
+                do {
+                    date = prompt('Nhập ngày sinh của học viên theo định dạng dd/mm/yyyy');
+                }while (!checkRegexDate.test(date));
                 infoStudent[i].name = name;
                 infoStudent[i].studentClass = studentClass;
                 infoStudent[i].mail = mail;
