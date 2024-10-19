@@ -12,28 +12,40 @@
         let z = parseInt(prompt('nhập vào z'));
         checkTriangle(x,y,z);
         function checkTriangle(x,y,z){
-            if ((x+y)>z && (x+z)>y && (y+z)>x){
-                let a = Math.max(x,y,z);
-                let b, c;
-                if (a === x){
-                    b = y;
-                    c =z;
-                }else if(a === y){
-                    b = x;
-                    c =z;
-                }else {
-                    b = x;
-                    c = y;
-                }
-                if(Math.pow(b,2)+Math.pow(c,2) === Math.pow(a,2)){
+            if (x>0 && y>0 && z>0 && (x+y)>z && (x+z)>y && (y+z)>x){
+                if(Math.pow(x,2)+Math.pow(y,2) === Math.pow(z,2) || Math.pow(y,2)+Math.pow(z,2) === Math.pow(x,2) || Math.pow(x,2)+Math.pow(z,2) === Math.pow(y,2)){
                     alert(`${x}, ${y}, ${z} là 3 cạnh của một tam giác vuông`);
-                }else {
+                }else{
                     alert(`${x}, ${y}, ${z} chỉ là 3 cạnh của một tam giác`);
                 }
-            }else {
+            }else{
                 alert(`${x}, ${y}, ${z} không phải là 3 cạnh của một tam giác`);
             }
         }
+// có thể dùng thêm hàm 
+        // function checkTriangle(x,y,z){
+        //     if (x>0 && y>0 && z>0 && (x+y)>z && (x+z)>y && (y+z)>x){
+        //         let a = Math.max(x,y,z);
+        //         let b, c;
+        //         if (a === x){
+        //             b = y;
+        //             c =z;
+        //         }else if(a === y){
+        //             b = x;
+        //             c =z;
+        //         }else {
+        //             b = x;
+        //             c = y;
+        //         }
+        //         if(Math.pow(b,2)+Math.pow(c,2) === Math.pow(a,2)){
+        //             alert(`${x}, ${y}, ${z} là 3 cạnh của một tam giác vuông`);
+        //         }else {
+        //             alert(`${x}, ${y}, ${z} chỉ là 3 cạnh của một tam giác`);
+        //         }
+        //     }else {
+        //         alert(`${x}, ${y}, ${z} không phải là 3 cạnh của một tam giác`);
+        //     }
+        // }
     </script>
 </body>
 </html>
