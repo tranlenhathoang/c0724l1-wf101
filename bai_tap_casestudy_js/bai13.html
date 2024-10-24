@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n;
+        do {
+            n = prompt('nhập độ dài mảng số nguyên');
+        }while(n>50 || isNaN(n))
+        let number = [];
+        for(let i=0; i<n; i++){
+            let inputNumber = parseInt(prompt(`nhập giá trị thứ ${i}`));
+            number[i] = inputNumber;
+        }
+        alert(`mảng bạn vừa nhập là ${number}`);
+        let numberEven = 0;
+        let numberOdd = 0;
+        for (let i=0; i<number.length; i++){
+            if (i%2 === 0){
+                numberEven += number[i];
+            }else{
+                numberOdd += number[i];
+            }
+        }
+        let valueNumber = numberEven - numberOdd;
+        alert(`giá trị là: ${valueNumber}`);
+    </script>
+</body>
+</html>

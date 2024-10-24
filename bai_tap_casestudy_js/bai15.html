@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sqrtCheck(n){
+            let sqrt = Math.sqrt(n);
+            return sqrt === Math.floor(sqrt);
+        }
+        function number(arr){
+            let newArray =[];
+            for (let i=0; i<arr.length; i++){
+                let numberCheck = arr[i];
+                if (sqrtCheck(5*numberCheck*numberCheck + 4) || sqrtCheck(5*numberCheck*numberCheck - 4)){
+                    newArray.push(numberCheck);
+                }
+            }
+            for (let i=0; i<newArray.length -1; i++){
+                for (let j=0; j<newArray.length -1 - i; j++){
+                    if (newArray[j]>newArray[j+1]){
+                        let temp = newArray[j];
+                        newArray[j]=newArray[j+1];
+                        newArray[j+1]=temp;
+                    }
+                }
+            }
+            return newArray;
+        }
+        let array = [1,5,6,13,9,12,8,0,5,1];
+        alert(`${number(array)}`);
+    </script>
+</body>
+</html>

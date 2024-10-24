@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function character(inputChar){
+            let numberChar = inputChar.toString().trim();
+            let countUpper = 0;
+            let countLower = 0;
+            for (let i=0; i<numberChar.length; i++){
+                if(numberChar[i] === numberChar[i].toUpperCase()){
+                    countUpper++;
+                }else{
+                    countLower++;
+                }
+            }
+            alert(`số ký tự in hoa là: ${countUpper}; số ký tự in thường là ${countLower}`);
+        }
+        character("HellOCodeym");
+    </script>
+</body>
+</html>
