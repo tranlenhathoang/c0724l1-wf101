@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n;
+        do {
+            n = prompt('nhập độ dài của mảng số nguyên');
+        }while(n>20)
+        let array =[];
+        let sumNumber = 0;
+        for (let i=0; i<n; i++){
+            let inputNumber = parseInt(prompt(`Nhập phần tử thứ ${i}`));
+            array[i]= inputNumber;
+            if (array[i]%3 === 0 && array[i]%5 === 0){
+                sumNumber += array[i];
+            }
+        }
+        alert(`Tổng của các số là bội chung của 3 và 5 là: ${sumNumber}`);
+    </script>
+</body>
+</html>
