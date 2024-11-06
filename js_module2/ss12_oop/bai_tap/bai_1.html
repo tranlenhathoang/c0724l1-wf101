@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal {
+            constructor(name,age){
+                this.name = name;
+                this.age =age;
+            }
+            speak(){
+                return `${this.name} make a sound.`;
+            }
+        }
+        let animal1 = new Animal ("Leo",5);
+        alert(animal1.speak());
+        class Dog extends Animal{
+            constructor(name,age,breed){
+                super(name,age);
+                this.breed =breed;
+            }
+            speak(){
+                return `${this.name}, the ${this.breed}, bark.`;
+            }
+        }
+        let dog1= new Dog ("Max", 3, "golden retriever");
+        alert(dog1.speak());
+        class Person {
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            setAge(newAge){
+                this.age = newAge;
+            }
+            getAge(){
+                return this.age;
+            }
+        }
+        let person1 =new Person ("Alice", 25);
+        alert(person1.getAge());
+        person1.setAge(50);
+        alert(person1.getAge());
+    </script>
+</body>
+</html>
