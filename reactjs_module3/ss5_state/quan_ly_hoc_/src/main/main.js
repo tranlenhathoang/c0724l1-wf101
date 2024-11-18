@@ -3,20 +3,42 @@ import { getStudent } from "./customer";
 import AddStudent from "./addStudent";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import DeleteStudent from "./deleteStudent";
+import { deleteStudent } from "./customer";
 
 class TableStudent extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            students: []
+            students: [],
+            isShowModal: false,
+            selectStudent: null
         };
         this.handleAddStudent= this.handleAddStudent.bind(this);
-    }
+        this.handleShowModal= this.handleShowModal.bind(this);
+        this.handleDelete= this.handleDelete.bind(this);
 
+    }
     componentDidMount(){
         this.setState((pre)=>({
             ...pre,
             students: getStudent()
+        }));
+    }
+    handleShowModal(student){
+        this.setState((pre)=>({
+            ...pre,
+            isShowModal: !pre.isShowModal,
+            selectStudent: student
+        }));
+        
+    }
+    handleDelete(inputStudent){
+        this.setState((pre)=>({
+            ...pre,
+            students: deleteStudent(inputStudent),
+            isShowModal: false,
+            selectStudent: null
         }));
     }
     handleAddStudent(newStudent){
@@ -45,13 +67,14 @@ class TableStudent extends React.Component{
                             <td>{e.phone}</td>
                             <td>{e.email}</td>
                             <td>
-                                <button class={'btn btn-sm btn-success'}>Edit</button>
-                                <button style={{marginLeft: '3px'}} class={'btn btn-sm btn-danger'}>Delete</button>
+                                <button className={'btn btn-sm btn-success'}>Edit</button>
+                                <button onClick={()=>this.handleShowModal(e)} style={{marginLeft: '3px'}} className={'btn btn-sm btn-danger'}>Delete</button>
                             </td>
                          </tr>
                     ))}
                 </tbody>
             </table>
+            <DeleteStudent deleteStudent={this.handleDelete} isShowModal={this.state.isShowModal} onClose ={this.handleShowModal} student={this.state.selectStudent}/>
             </>
         );
     }

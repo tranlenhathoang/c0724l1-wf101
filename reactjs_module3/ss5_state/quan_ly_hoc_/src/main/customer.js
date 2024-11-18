@@ -18,4 +18,11 @@ const listStudent =[
   export function getStudent(){
     return listStudent;
   }
+  export function deleteStudent(inputStudent){
+    const newStudent= listStudent.findIndex(student => student === inputStudent);
+    if (newStudent !== -1 ){
+      listStudent.splice(newStudent,1)
+    }
+    return [...listStudent];
+  }
   
