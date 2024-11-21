@@ -19,7 +19,7 @@ const ListComponent = ()=>{
     },[]); 
     const handleAddStudent =(newStudent)=>{
         addStudentList(newStudent);
-        setStudentList([...getStudent()]);
+        setStudentList(()=>[...getStudent()]);
     }
     const handleShowModal = (student)=>{
         setIsShowModal((pre)=> !pre);
@@ -28,13 +28,13 @@ const ListComponent = ()=>{
     const handleDeleteStudent = (student)=>{
         console.log('------delete---')
         deleteStudent(student)
-        setStudentList([...getStudent()]);
+        setStudentList(()=>[...getStudent()]);
         setIsShowModal(false);
     }
     const handleSearchStudent = (studentId)=>{
         console.log('----search----')
         const result = searchStudent(studentId)
-        setStudentList([...result]);
+        setStudentList(()=>[...result]);
     }
     const handleReset =()=>{
         setStudentList([...getStudent()]);

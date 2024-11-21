@@ -32,6 +32,6 @@ export function deleteStudent(inputStudent){
     }
     return [...listStudent];
 }
-export function searchStudent(studentId){
-   return listStudent.filter(student => student.id === parseInt(studentId));
+export function searchStudent(studentName){
+   return listStudent.filter(student => student.name.includes(studentName));
 }
