@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import { addStudentList, getStudent, deleteStudent, searchStudent } from './Student';
+import {getStudent, searchStudent } from './Student';
 import AddStudent from './AddStudent';
 import DeleteStudent from './DeleteStudent';
 import SearchStudent from './Search';
@@ -11,28 +11,25 @@ const ListComponent = ()=>{
     const [isShowModal, setIsShowModal] = useState(false)
     const [Student, setDeleteStudent] = useState(null)
     useEffect(()=>{
-        setStudentList(()=>(
+        console.log('-----useEffect run-------')
+        setStudentList(()=> (
             [
                 ...getStudent()
             ]
         ))
     },[]); 
     const handleAddStudent =(newStudent)=>{
-        addStudentList(newStudent);
-        setStudentList(()=>[...getStudent()]);
+        setStudentList((prev) => [...prev, newStudent]);
     }
     const handleShowModal = (student)=>{
         setIsShowModal((pre)=> !pre);
         setDeleteStudent(student);
     }
     const handleDeleteStudent = (student)=>{
-        console.log('------delete---')
-        deleteStudent(student)
-        setStudentList(()=>[...getStudent()]);
-        setIsShowModal(false);
+        setStudentList(studentList.filter(studentPre => studentPre.id !== student));
+        setIsShowModal(false)
     }
     const handleSearchStudent = (studentId)=>{
-        console.log('----search----')
         const result = searchStudent(studentId)
         setStudentList(()=>[...result]);
     }
@@ -41,11 +38,12 @@ const ListComponent = ()=>{
     }
     return (
         <>
+        {console.log('---------list render---------')}
         <AddStudent onAddStudent={handleAddStudent}/>
         <SearchStudent onReset={handleReset} onSearch={handleSearchStudent}/>
-        <table class={'table table-bordered'}>
+        <table className={'table table-bordered'}>
                 <thead>
-                    <tr class={'text-center'}>
+                    <tr className={'text-center'}>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Phone</th>

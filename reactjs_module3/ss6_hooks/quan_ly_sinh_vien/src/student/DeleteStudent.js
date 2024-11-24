@@ -3,6 +3,7 @@ import React from "react";
 const DeleteStudent = ({onShowModal, student, onDelete}) => {
   return (
     <>
+    {console.log('---------delete render-----------')}
       <div className={`modal show d-block`} tabindex="-1">
         <div className="modal-dialog">
           <div className="modal-content">

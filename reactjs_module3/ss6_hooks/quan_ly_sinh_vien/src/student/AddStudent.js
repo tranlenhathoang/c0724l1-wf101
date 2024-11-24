@@ -18,6 +18,7 @@ const AddStudent = ({onAddStudent})=>{
 
     return(
         <>
+        {console.log('----add render-----')}
         <div className={'text-center'}>
                 <h2>Student Lish</h2>
                 <form>
