@@ -25,8 +25,8 @@ const ListComponent = ()=>{
         setIsShowModal((pre)=> !pre);
         setDeleteStudent(student);
     }
-    const handleDeleteStudent = (student)=>{
-        setStudentList(studentList.filter(studentPre => studentPre.id !== student));
+    const handleDeleteStudent = (id)=>{
+        setStudentList(studentList.filter(studentPre => studentPre.id !== id));
         setIsShowModal(false)
     }
     const handleSearchStudent = (studentId)=>{
