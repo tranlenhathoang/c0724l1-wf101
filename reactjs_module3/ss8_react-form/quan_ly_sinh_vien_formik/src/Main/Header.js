@@ -25,12 +25,12 @@ const HeaderStudent = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" to="/">
+                <Link className="nav-link active" to="/homepage">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/product">
+                <Link className="nav-link" to="/list">
                   List
                 </Link>
               </li>
