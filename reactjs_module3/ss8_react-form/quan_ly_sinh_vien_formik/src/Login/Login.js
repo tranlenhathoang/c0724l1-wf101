@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
@@ -86,7 +86,8 @@ const Login =()=>{
                     <ErrorMessage name='password' style={{color: 'red'}} component='div'/>
                 </div>
                 <div className={"mb-3"}>
-                    <button className={"btn btn-sm btn-primary"} type='submit'>Submit</button>
+                    <button className={"btn btn-sm btn-success"} type='submit'>Login</button>
+                    <Link className={"btn btn-sm btn-outline-secondary"} style={{marginLeft: '10px'}} to='/register'>Register</Link>
                 </div>
             </Form>
         </Formik>

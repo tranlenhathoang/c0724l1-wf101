@@ -13,3 +13,11 @@ export const  checkLogin = async (user)=>{
 
     }
 } 
+export const addRegister = async (account)=>{
+    try {
+        const response = await axios.post('http://localhost:8080/infoLogin',account)
+        return response.data;
+    }catch(e){
+        console.log('lỗi');
+    }
+}

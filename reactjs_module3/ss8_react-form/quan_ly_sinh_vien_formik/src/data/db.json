@@ -47,6 +47,11 @@
       "email": "tranlenhathoang357@gmail.com",
       "password": 123,
       "role": "user"
+    },
+    {
+      "email": "baochau30071998@gmail.com",
+      "password": 1234,
+      "id": 5
     }
   ]
 }
