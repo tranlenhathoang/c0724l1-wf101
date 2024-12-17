@@ -1,9 +1,16 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/accountAction";
 
 const HeaderStudent = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.currentUser);
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -35,6 +42,20 @@ const HeaderStudent = () => {
                 </Link>
               </li>
             </ul>
+          </div>
+          <div className="d-flex align-items-center">
+            {user && (
+              <>
+                <p className="mb-0 me-3">{user.email}</p>
+                <Link
+                  onClick={handleLogout}
+                  className="btn btn-outline-danger btn-sm"
+                  to="/"
+                >
+                  LOGOUT
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>

@@ -1,0 +1,29 @@
+{
+  "listStudent": [
+    {
+      "name": "quần",
+      "phone": "09999",
+      "email": "tranhoang30071998@gmail.com",
+      "gender": "Male",
+      "course": [
+        "Lý"
+      ],
+      "city": "HaNoi",
+      "id": 1
+    }
+  ],
+  "infoLogin": [
+    {
+      "id": 1,
+      "email": "tranhoang30071998@gmail.com",
+      "password": 123,
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "email": "tranlenhathoang357@gmail.com",
+      "password": 123,
+      "role": "user"
+    }
+  ]
+}

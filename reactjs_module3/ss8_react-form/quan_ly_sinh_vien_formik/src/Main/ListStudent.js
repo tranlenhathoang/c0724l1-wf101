@@ -9,15 +9,21 @@ const ListStudent = () => {
   const [studentDelete, setStudentDelete] =useState('');
 
   useEffect(() => {
-    setStudent(() => [...getStudent()]);
+    const fetchData = async ()=>{
+        const listStudent = await getStudent();
+        setStudent(listStudent);
+    }
+    fetchData()
+    // setStudent(() => [...getStudent()]);
   }, []);
   const handleShowModal = (student)=>{
     setIsShowModal(!isShowModal);
     setStudentDelete(student);
   }
-  const handleDelete = (id)=>{
-    deleteStudent(id)
-    setStudent(getStudent());
+  const handleDelete = async (id)=>{
+    await deleteStudent(id)
+    const updateList = await getStudent();
+    setStudent(updateList)
     setIsShowModal(false);
   }
   return (

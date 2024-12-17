@@ -3,11 +3,17 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { addStudent } from "../ApiStudent/ApiStudent";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from 'yup';
+import { toast } from 'react-toastify';
 
 const AddStudent = () => {
     const navigate = useNavigate();
-  const handleSubmit = (value) => {
-    addStudent(value);
+  const handleSubmit = async (value) => {
+    const student = {
+      ...value,
+      // manufacture: JSON.parse(value.manufacture)
+    };
+    await addStudent(student);
+    toast.success('Thêm mới thành công');
     navigate('/list');
   };
   const handleValidate = Yup.object({

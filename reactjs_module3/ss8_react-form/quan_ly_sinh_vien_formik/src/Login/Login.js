@@ -4,11 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import { useDispatch } from 'react-redux';
+import { login } from '../redux/accountAction';
+import { checkLogin } from '../ApiStudent/ApiLoin';
 
 const Login =()=>{
     const [eyePosition, setEyePosition] = useState({x:0, y:0});
     const [isEyeClosed, setIsEyeClosed] = useState(false);
     const navigate = useNavigate();
+    const dispatch= useDispatch(); // Hook để gửi action
     const handleEyeMove = (e)=>{
         const input = e.target;
         const {selectionStart}= input; 
@@ -32,15 +36,17 @@ const Login =()=>{
     const handleEyeBlur= ()=>{
         setIsEyeClosed(false)
     }
-    const handleSubmit=(value, {setFieldError})=>{
-        const correctPassword = '123456';
-        const correctEmail = 'tranhoang30071998@gmail.com';
-        if(value.email !== correctEmail || value.password !== correctPassword){
-           setFieldError('password', 'Mật khẩu không đúng');
+    const handleSubmit= async (value)=>{   
            // setFieldError dùng để hiển thị lỗi nếu trường mật khẩu sai nó được sử dụng giống như validate; 
-        }else {
-            navigate('/homepage');
-        }
+            const user = await checkLogin(value);
+            
+            if(user){
+                dispatch(login(user));
+                console.log(user);
+                navigate('/homepage');
+            }else{
+                alert('Đăng nhập thất bại')
+            }
     }
     const handleValidate = Yup.object({
         email: Yup.string().required('Không Được Để Trống'),
