@@ -1,0 +1,46 @@
+{
+  "listResort": [
+    {
+      "id": 1,
+      "name": "OCEAN SUITE",
+      "acg": "30m2",
+      "image": "/anh/anh3.jpeg",
+      "category": ""
+    },
+    {
+      "id": 2,
+      "name": "OCEAN SUITE",
+      "acg": "30m2",
+      "image": "/anh/anh2.jpeg",
+      "category": ""
+    },
+    {
+      "id": 2,
+      "name": "OCEAN SUITE",
+      "acg": "30m2",
+      "image": "/anh/anh3.jpeg",
+      "category": ""
+    },
+    {
+      "name": "BEACH FRONT VILLA",
+      "acg": "900",
+      "image": "",
+      "category": "villa",
+      "id": 4
+    }
+  ],
+  "listCategory": [
+    {
+      "id": 1,
+      "category": "villa"
+    },
+    {
+      "id": 2,
+      "category": "House"
+    },
+    {
+      "id": 3,
+      "category": "Room"
+    }
+  ]
+}
