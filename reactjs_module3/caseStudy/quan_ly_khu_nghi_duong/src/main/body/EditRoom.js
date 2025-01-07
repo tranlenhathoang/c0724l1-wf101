@@ -1,55 +1,72 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import React, { useState,useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import {ErrorMessage, Field, Formik, Form} from 'formik'
+import { getResort } from "../../ApiResort/ApiListResort";
 import { getCategory } from "../../ApiResort/ApiCategory";
-import { addNewResort } from "../../ApiResort/ApiListResort";
+import { roomUpdate } from "../../ApiResort/ApiListResort";
+import * as Yup from 'yup';
 
-const AddNewRoom = () => {
-  const [categoryList, setCategory] = useState([]);
+const EditRoom = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
+  const [category, setCategory] = useState([]);
   const [room, setRoom] = useState({
     name: "",
     acg: "",
     image: "",
     category: "",
   });
-  useEffect(() => {
-    const fetchCategory = async () => {
-      const list = await getCategory();
-      setCategory(list);
-    };
-    fetchCategory();
-  });
-  const handleSubmit = async (value) => {
-    const selectCategory = JSON.parse(value.category);
-    const newResort = { 
-      ...value,
-      category: selectCategory
-    };
-    await addNewResort(newResort);
-    navigate("/list");
-  };
-  const handleValidate = Yup.object({
+  useEffect(()=>{
+    // lấy dữ liệu phòng và danh mục category
+    const fetchData = async ()=>{
+        const roomList = await getResort();
+        const selectRoom = roomList.find((room)=> room.id === parseInt(id));
+        if(selectRoom){
+            setRoom({
+                ...selectRoom,
+                category: JSON.stringify(selectRoom.category)
+                // chuyển category thành chuỗi để dùng trong select
+            });
+        }
+        const categoryList = await getCategory();
+        setCategory(categoryList);
+    }
+    fetchData();
+  },[id]);
+
+// update thông tin
+const handleSubmit = async (value)=>{
+    const updateCategory = JSON.parse(value.category);
+    const updateRoom = {
+        ...value,
+        category: updateCategory
+    }
+    await roomUpdate(id, updateRoom);
+    navigate('/list');
+}
+const handleValidate = Yup.object({
     name: Yup.string().required("Room name is required"),
     acg: Yup.string().required("Area is required"),
     image: Yup.string().required("Image is required"),
     category: Yup.string().required("Category is required"),
-  });
+})
   return (
     <>
       <div className="container mt-5">
         <div className=" row justify-content-center">
           <div className="col-md-6">
-            <h2 className="text-center mb-4">ADD NEW ROOM</h2>
+            <h2 className="text-center mb-4">EDIT ROOM</h2>
             <Formik
               initialValues={room}
               onSubmit={handleSubmit}
+              enableReinitialize={true}
               validationSchema={handleValidate}
             >
               <Form>
                 <div className="mb-3">
-                  <label htmlFor="name" className="form-label">Room Name:</label>
+                  <label htmlFor="name" className="form-label">
+                    Room Name:
+                  </label>
                   <Field
                     type="text"
                     id="name"
@@ -64,7 +81,9 @@ const AddNewRoom = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="acg" className="form-label">Area (m<sup>2</sup>):</label>
+                  <label htmlFor="acg" className="form-label">
+                    Area (m<sup>2</sup>):
+                  </label>
                   <Field
                     type="text"
                     id="acg"
@@ -79,7 +98,9 @@ const AddNewRoom = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="image" className="form-label">Room Image:</label>
+                  <label htmlFor="image" className="form-label">
+                    Room Image:
+                  </label>
                   <Field
                     type="text"
                     id="image"
@@ -94,12 +115,14 @@ const AddNewRoom = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="category" className="form-label">Category:</label>
+                  <label htmlFor="category" className="form-label">
+                    Category:
+                  </label>
                   <Field as="select" name="category" className="form-select">
                     <option value={""}>-------Select----------</option>
-                    {categoryList.map((e) => (
-                      <option key={e.id} value={JSON.stringify(e)}> 
-                      {/* JSON.stringify() lấy cả đối tượng */}
+                    {category.map((e) => (
+                      <option key={e.id} value={JSON.stringify(e)}>
+                        {/* JSON.stringify() lấy cả đối tượng */}
                         {e.name}
                       </option>
                     ))}
@@ -111,7 +134,7 @@ const AddNewRoom = () => {
                   />
                 </div>
                 <div>
-                  <button type={"submit"}>Save</button>
+                  <button type={"submit"}>Save Change</button>
                 </div>
               </Form>
             </Formik>
@@ -121,4 +144,4 @@ const AddNewRoom = () => {
     </>
   );
 };
-export default AddNewRoom;
+export default EditRoom;

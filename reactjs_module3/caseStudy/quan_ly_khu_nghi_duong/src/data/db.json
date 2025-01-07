@@ -5,42 +5,44 @@
       "name": "OCEAN SUITE",
       "acg": "30m2",
       "image": "/anh/anh3.jpeg",
-      "category": ""
+      "category": {
+        "id": 2,
+        "name": "House"
+      }
     },
     {
-      "id": 2,
-      "name": "OCEAN SUITE",
-      "acg": "30m2",
-      "image": "/anh/anh2.jpeg",
-      "category": ""
-    },
-    {
-      "id": 2,
+      "id": 3,
       "name": "OCEAN SUITE",
       "acg": "30m2",
       "image": "/anh/anh3.jpeg",
-      "category": ""
+      "category": {
+        "id": 3,
+        "name": "Room"
+      }
     },
     {
       "name": "BEACH FRONT VILLA",
       "acg": "900",
-      "image": "",
-      "category": "villa",
+      "image": "https://sp-ao.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_800/https://oneera.vn/wp-content/uploads/2018/04/Nha-mau-RichLand-Maple-Tree-2pn-124.jpg",
+      "category": {
+        "id": 1,
+        "name": "villa"
+      },
       "id": 4
     }
   ],
-  "listCategory": [
+  "category": [
     {
       "id": 1,
-      "category": "villa"
+      "name": "villa"
     },
     {
       "id": 2,
-      "category": "House"
+      "name": "House"
     },
     {
       "id": 3,
-      "category": "Room"
+      "name": "Room"
     }
   ]
 }

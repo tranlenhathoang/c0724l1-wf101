@@ -1,6 +1,7 @@
 import React from "react";
 
-const DeleteRoom = ({onClose, roomDelete, onDelete}) => {
+const DeleteProduct = ({onClose, productDelete, onDelete}) => {
+
   return (
     <>
       <div className={`modal show d-block`} tabIndex="-1">
@@ -17,7 +18,7 @@ const DeleteRoom = ({onClose, roomDelete, onDelete}) => {
               ></button>
             </div>
             <div className="modal-body">
-              <p>Bạn có chắc muốn xoá Student: {roomDelete.name}</p>
+              <p>Bạn có chắc muốn xoá Student: {productDelete.title}</p>
             </div>
             <div className="modal-footer">
               <button
@@ -29,7 +30,7 @@ const DeleteRoom = ({onClose, roomDelete, onDelete}) => {
                 Close
               </button>
               <button
-                onClick={() => onDelete(roomDelete.id)}
+                onClick={() => onDelete(productDelete.id)}
                 type="button"
                 className="btn btn-primary"
               >
@@ -42,4 +43,4 @@ const DeleteRoom = ({onClose, roomDelete, onDelete}) => {
     </>
   );
 };
-export default DeleteRoom;
+export default DeleteProduct; 
